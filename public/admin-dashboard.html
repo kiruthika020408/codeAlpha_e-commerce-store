@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Orders | CodeAlpha Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div style="display:flex; justify-content:flex-end; margin-bottom:12px;">
+                <a href="#" id="backToAccessBtn" class="auth-link">Back to Access</a>
+            </div>
+            <h1>📦 Admin Order Panel</h1>
+            <p>Review all customer orders with their details, address, time, and payment method.</p>
+        </div>
+
+        <div class="admin-panel">
+            <h2>Customer Orders</h2>
+            <div id="ordersList" class="order-list"></div>
+        </div>
+    </div>
+
+    <script>
+        const backToAccessBtn = document.getElementById("backToAccessBtn");
+        const admin = JSON.parse(localStorage.getItem("storeAdmin") || "null");
+
+        if (!admin) {
+            window.location.href = "/";
+        }
+
+        backToAccessBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            localStorage.removeItem("storeAdmin");
+            localStorage.removeItem("storeUser");
+            window.location.href = "/";
+        });
+
+        const orders = JSON.parse(localStorage.getItem("storeOrders")) || [];
+        const ordersList = document.getElementById("ordersList");
+
+        if (orders.length === 0) {
+            ordersList.innerHTML = '<p class="empty">No orders have been placed yet.</p>';
+        } else {
+            ordersList.innerHTML = orders.map((order) => `
+                <article class="order-box">
+                    <strong>Order #${order.id}</strong>
+                    <p class="order-meta">Customer: ${order.customerName}</p>
+                    <p class="order-meta">Email: ${order.email}</p>
+                    <p class="order-meta">Phone: ${order.phone}</p>
+                    <p class="order-meta">Address: ${order.address}</p>
+                    <p class="order-meta">Payment: ${order.payment}</p>
+                    <p class="order-meta">Ordered on: ${order.orderedAt}</p>
+                    <ul class="order-items">
+                        ${order.items.map((item) => `<li>${item.name} × ${item.quantity}</li>`).join("")}
+                    </ul>
+                    <p class="order-total">Total: ₹${order.total}</p>
+                </article>
+            `).join("");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration | CodeAlpha Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-brand">
+                <h1>Create Admin Account</h1>
+                <p>Manage customer orders, addresses, and delivery details professionally.</p>
+            </div>
+
+            <form id="adminRegisterForm" class="auth-form">
+                <label for="adminName">Full name</label>
+                <input id="adminName" name="adminName" type="text" placeholder="Admin full name" required>
+
+                <label for="adminEmail">Email address</label>
+                <input id="adminEmail" name="adminEmail" type="email" placeholder="admin@example.com" required>
+
+                <label for="adminPassword">Password</label>
+                <input id="adminPassword" name="adminPassword" type="password" placeholder="Create a password" required>
+
+                <button type="submit" class="auth-submit">Create Admin Account</button>
+            </form>
+
+            <p class="auth-footer">Need a customer account instead? <a href="register-user.html">Register as user</a></p>
+            <a href="index.html" class="back-link">← Back to shop</a>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("adminRegisterForm");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("adminName").value.trim();
+            const email = document.getElementById("adminEmail").value.trim();
+            const password = document.getElementById("adminPassword").value;
+
+            if (!name || !email || password.length < 4) {
+                alert("Please enter a valid name, email, and password.");
+                return;
+            }
+
+            localStorage.setItem("storeAdmin", JSON.stringify({ name, email, role: "admin" }));
+            window.location.href = "admin-dashboard.html";
+        });
+    </script>
+</body>
+</html>

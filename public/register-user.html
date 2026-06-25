@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration | CodeAlpha Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-brand">
+                <h1>Create Customer Account</h1>
+                <p>Access the shop, place orders, and track your purchases.</p>
+            </div>
+
+            <form id="userRegisterForm" class="auth-form">
+                <label for="userName">Full name</label>
+                <input id="userName" name="userName" type="text" placeholder="Your full name" required>
+
+                <label for="userEmail">Email address</label>
+                <input id="userEmail" name="userEmail" type="email" placeholder="you@example.com" required>
+
+                <label for="userPassword">Password</label>
+                <input id="userPassword" name="userPassword" type="password" placeholder="Create a password" required>
+
+                <button type="submit" class="auth-submit">Create Account</button>
+            </form>
+
+            <p class="auth-footer">Already have an account? <a href="login.html">Choose account type</a></p>
+            <a href="index.html" class="back-link">← Back to shop</a>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("userRegisterForm");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("userName").value.trim();
+            const email = document.getElementById("userEmail").value.trim();
+            const password = document.getElementById("userPassword").value;
+
+            if (!name || !email || password.length < 4) {
+                alert("Please enter a valid name, email, and password.");
+                return;
+            }
+
+            localStorage.setItem("storeUser", JSON.stringify({ name, email, role: "user" }));
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

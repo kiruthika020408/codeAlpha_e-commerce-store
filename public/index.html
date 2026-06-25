@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAlpha E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+        <header class="hero">
+            <div class="hero-top">
+                <a href="login.html" id="authLink" class="auth-link">Login</a>
+                <a href="register-user.html" class="auth-link secondary">Register</a>
+                <a href="admin-dashboard.html" class="auth-link secondary">Admin</a>
+            </div>
+            <h1>🛒 CodeAlpha E-Commerce Store</h1>
+            <p>Pick your favorite items and build your order in a few clicks.</p>
+            <div id="authStatus" class="auth-status">Sign in to place your order.</div>
+        </header>
+
+        <section class="products">
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Sony WH-1000XM5 headphones" class="product-image" loading="lazy">
+                <h2>Sony WH-1000XM5</h2>
+                <p class="product-desc">Premium noise-canceling headphones for immersive listening.</p>
+                <p class="price">₹999</p>
+                <button class="add-to-cart-btn" data-name="Sony WH-1000XM5" data-price="999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Apple Watch Series 9" class="product-image" loading="lazy">
+                <h2>Apple Watch Series 9</h2>
+                <p class="product-desc">Smart fitness tracking and everyday notifications in one sleek device.</p>
+                <p class="price">₹1999</p>
+                <button class="add-to-cart-btn" data-name="Apple Watch Series 9" data-price="1999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Nike travel backpack" class="product-image" loading="lazy">
+                <h2>Samsonite Pro Backpack</h2>
+                <p class="product-desc">A durable travel backpack designed for work and movement.</p>
+                <p class="price">₹1499</p>
+                <button class="add-to-cart-btn" data-name="Samsonite Pro Backpack" data-price="1499">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80" alt="Logitech MX Master 3S mouse" class="product-image" loading="lazy">
+                <h2>Logitech MX Master 3S</h2>
+                <p class="product-desc">Precision control with a premium ergonomic feel.</p>
+                <p class="price">₹799</p>
+                <button class="add-to-cart-btn" data-name="Logitech MX Master 3S" data-price="799">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80" alt="JBL Charge 5 speaker" class="product-image" loading="lazy">
+                <h2>JBL Charge 5</h2>
+                <p class="product-desc">Portable bass-rich sound for home, travel, and outdoor use.</p>
+                <p class="price">₹1299</p>
+                <button class="add-to-cart-btn" data-name="JBL Charge 5" data-price="1299">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Belkin MagSafe phone stand" class="product-image" loading="lazy">
+                <h2>Belkin MagSafe Stand</h2>
+                <p class="product-desc">A compact stand to keep your phone upright and stylish.</p>
+                <p class="price">₹499</p>
+                <button class="add-to-cart-btn" data-name="Belkin MagSafe Stand" data-price="499">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=800&q=80" alt="Samsung Galaxy S24" class="product-image" loading="lazy">
+                <h2>Samsung Galaxy S24</h2>
+                <p class="product-desc">Flagship camera performance and a bright AMOLED display.</p>
+                <p class="price">₹54999</p>
+                <button class="add-to-cart-btn" data-name="Samsung Galaxy S24" data-price="54999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Dell XPS laptop" class="product-image" loading="lazy">
+                <h2>Dell XPS 13</h2>
+                <p class="product-desc">Ultra-light laptop with premium build and sharp visuals.</p>
+                <p class="price">₹89999</p>
+                <button class="add-to-cart-btn" data-name="Dell XPS 13" data-price="89999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=800&q=80" alt="Nintendo Switch OLED" class="product-image" loading="lazy">
+                <h2>Nintendo Switch OLED</h2>
+                <p class="product-desc">Portable gaming with vivid colors and a larger display.</p>
+                <p class="price">₹29999</p>
+                <button class="add-to-cart-btn" data-name="Nintendo Switch OLED" data-price="29999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80" alt="Canon EOS camera" class="product-image" loading="lazy">
+                <h2>Canon EOS R10</h2>
+                <p class="product-desc">A creative camera for photography lovers and creators.</p>
+                <p class="price">₹75999</p>
+                <button class="add-to-cart-btn" data-name="Canon EOS R10" data-price="75999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=80" alt="Nikon Z50 camera" class="product-image" loading="lazy">
+                <h2>Nikon Z50</h2>
+                <p class="product-desc">Compact mirrorless power with excellent image quality.</p>
+                <p class="price">₹68999</p>
+                <button class="add-to-cart-btn" data-name="Nikon Z50" data-price="68999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80" alt="Fitbit Charge 6" class="product-image" loading="lazy">
+                <h2>Fitbit Charge 6</h2>
+                <p class="product-desc">A smart fitness tracker for daily health and sleep insights.</p>
+                <p class="price">₹12999</p>
+                <button class="add-to-cart-btn" data-name="Fitbit Charge 6" data-price="12999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Anker 735 charger" class="product-image" loading="lazy">
+                <h2>Anker 735 Charger</h2>
+                <p class="product-desc">Fast and reliable charging for your everyday devices.</p>
+                <p class="price">₹3999</p>
+                <button class="add-to-cart-btn" data-name="Anker 735 Charger" data-price="3999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=800&q=80" alt="Samsung Galaxy Buds" class="product-image" loading="lazy">
+                <h2>Samsung Galaxy Buds</h2>
+                <p class="product-desc">Compact earbuds with rich sound and all-day comfort.</p>
+                <p class="price">₹7999</p>
+                <button class="add-to-cart-btn" data-name="Samsung Galaxy Buds" data-price="7999">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=800&q=80" alt="Philips Hue light bulb" class="product-image" loading="lazy">
+                <h2>Philips Hue Bulb</h2>
+                <p class="product-desc">Smart lighting that creates the right mood instantly.</p>
+                <p class="price">₹2499</p>
+                <button class="add-to-cart-btn" data-name="Philips Hue Bulb" data-price="2499">Add to Cart</button>
+            </article>
+        </section>
+
+        <section class="order-section">
+            <div class="order-card">
+                <h2>Order Summary</h2>
+                <div id="cartItems" class="cart-items">
+                    <p class="empty">Your order is empty.</p>
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong>₹<span id="subtotal">0</span></strong>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <strong>Free</strong>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <strong>₹<span id="total">0</span></strong>
+                </div>
+
+                <div class="checkout-actions">
+                    <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
+                </div>
+
+                <section id="checkoutSection" class="checkout-section hidden">
+                    <h3>Shipping Details</h3>
+                    <p class="empty">You must be registered as a customer before you can place an order.</p>
+                    <form id="checkoutForm" class="checkout-form">
+                        <input id="fullName" name="fullName" type="text" placeholder="Full name" required>
+                        <input id="email" name="email" type="email" placeholder="Email address" required>
+                        <input id="address" name="address" type="text" placeholder="Delivery address" required>
+                        <input id="phone" name="phone" type="tel" placeholder="Phone number" required>
+                        <select id="payment" name="payment" required>
+                            <option value="">Select payment method</option>
+                            <option value="Card">Credit / Debit Card</option>
+                            <option value="UPI">UPI</option>
+                            <option value="COD">Cash on Delivery</option>
+                        </select>
+                        <button type="submit" class="checkout-submit">Place Order</button>
+                    </form>
+                    <div id="orderMessage" class="order-message"></div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

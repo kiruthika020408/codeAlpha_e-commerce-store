@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Access | CodeAlpha Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-brand">
+                <h1>Welcome to CodeAlpha Store</h1>
+                <p>Choose your access level to continue. Customers browse products and place orders. Admins review all placed orders.</p>
+            </div>
+
+            <div class="auth-actions">
+                <form id="userLoginForm" class="auth-form">
+                    <h3>Customer Access</h3>
+                    <label for="userName">Name</label>
+                    <input id="userName" name="userName" type="text" placeholder="Enter your name" required>
+                    <label for="userEmail">Email</label>
+                    <input id="userEmail" name="userEmail" type="email" placeholder="you@example.com" required>
+                    <button type="submit" class="auth-submit">Continue as User</button>
+                </form>
+
+                <form id="adminLoginForm" class="auth-form" style="margin-top:16px;">
+                    <h3>Admin Access</h3>
+                    <label for="adminName">Name</label>
+                    <input id="adminName" name="adminName" type="text" placeholder="Admin name" required>
+                    <label for="adminEmail">Email</label>
+                    <input id="adminEmail" name="adminEmail" type="email" placeholder="admin@example.com" required>
+                    <button type="submit" class="auth-submit" style="background:#2563eb;">Continue as Admin</button>
+                </form>
+            </div>
+
+            <p class="auth-footer">
+                New here? <a href="register-user.html">Create customer account</a> or <a href="register-admin.html">create admin account</a>.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const userForm = document.getElementById("userLoginForm");
+        const adminForm = document.getElementById("adminLoginForm");
+        const params = new URLSearchParams(window.location.search);
+        const logout = params.get("logout") === "1";
+
+        const existingUser = JSON.parse(localStorage.getItem("storeUser") || "null");
+        const existingAdmin = JSON.parse(localStorage.getItem("storeAdmin") || "null");
+
+        if (!logout && existingUser) {
+            window.location.href = "index.html";
+        }
+
+        if (!logout && existingAdmin) {
+            window.location.href = "admin-dashboard.html";
+        }
+
+        userForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("userName").value.trim();
+            const email = document.getElementById("userEmail").value.trim();
+
+            if (!name || !email) {
+                alert("Please enter your name and email.");
+                return;
+            }
+
+            localStorage.setItem("storeUser", JSON.stringify({ name, email, role: "user" }));
+            localStorage.removeItem("storeAdmin");
+            window.location.href = "index.html";
+        });
+
+        adminForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("adminName").value.trim();
+            const email = document.getElementById("adminEmail").value.trim();
+
+            const ownerName = "kiruthika";
+            const ownerEmail = "kiruthika@2008";
+
+            if (!name || !email) {
+                alert("Please enter your name and email.");
+                return;
+            }
+
+            if (name !== ownerName || email !== ownerEmail) {
+                alert("Only the owner can access the admin panel.");
+                return;
+            }
+
+            localStorage.setItem("storeAdmin", JSON.stringify({ name, email, role: "admin" }));
+            localStorage.removeItem("storeUser");
+            window.location.href = "admin-dashboard.html";
+        });
+    </script>
+</body>
+</html>
